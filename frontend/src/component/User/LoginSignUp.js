@@ -28,9 +28,10 @@ const LoginSignUp = ({ history, location }) => {
     name: "",
     email: "",
     password: "",
+    role:"user"
   });
 
-  const { name, email, password } = user;
+  const { name, email, password, role } = user;
 
   const [avatar, setAvatar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
@@ -48,6 +49,7 @@ const LoginSignUp = ({ history, location }) => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
+    myForm.set("role", role)
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
   };
@@ -65,6 +67,10 @@ const LoginSignUp = ({ history, location }) => {
 
       reader.readAsDataURL(e.target.files[0]);
     } else {
+      if(e.target.name === "role"){
+        e.target.value = e.target.checked ? "admin" : "user"
+      }
+      
       setUser({ ...user, [e.target.name]: e.target.value });
     }
   };
@@ -144,6 +150,16 @@ const LoginSignUp = ({ history, location }) => {
                 encType="multipart/form-data"
                 onSubmit={registerSubmit}
               >
+                <div className="isBuyer">
+                  <pre>Are you Seller?</pre>
+                  <input 
+                    type="checkbox" 
+                    id="role" 
+                    name="role"
+                    onChange={registerDataChange} 
+                  />
+                </div>
+
                 <div className="signUpName">
                   <FaceIcon />
                   <input
