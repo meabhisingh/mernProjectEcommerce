@@ -11,11 +11,13 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
     folder: "avatars",
     width: 150,
-    crop: "scale",
+    height: 150, 
+    gravity: "face",
+    crop: "thumb",
   });
 
-  const { name, email, password } = req.body;
-
+  const { name, email, password , role } = req.body;
+  
   const user = await User.create({
     name,
     email,
@@ -24,6 +26,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
       public_id: myCloud.public_id,
       url: myCloud.secure_url,
     },
+    role 
   });
 
   sendToken(user, 201, res);
