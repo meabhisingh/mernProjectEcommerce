@@ -1,0 +1,40 @@
+[33mcommit a7ea9c9ea2b5264d0b9c561119931a49f04833d1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: cc8e131 ca218df
+Author: Abhishek Singh <meabhisingh25@gmail.com>
+Date:   Thu Jun 30 10:20:15 2022 +0530
+
+    Merge pull request #6 from zeeshanejaz786/patch-1
+    
+    changed the name of class to errorHandler
+
+[33mcommit ca218df1979602e3831332629caf81ae02eba3b4[m
+Author: Muhammad Zeeshan Ejaz <95121238+zeeshanejaz786@users.noreply.github.com>
+Date:   Sun Feb 6 18:07:38 2022 +0500
+
+    changed the name of class to errorHandler
+    
+    the name of the class is errorHander which is not wanted. so changed it to errorHandler
+
+[33mcommit cc8e13160b99574c08c628bd4f71ad0efbb8a954[m
+Author: Abhishek Singh <meabhisingh25@gmail.com>
+Date:   Mon Sep 20 16:51:46 2021 +0530
+
+    Initial Avatar Fixed
+
+[33mcommit 104fc79f1c74f6540094bbd75d7b3ad9f8b97e3a[m
+Author: Abhishek Singh <meabhisingh25@gmail.com>
+Date:   Mon Sep 20 16:49:35 2021 +0530
+
+     Dashboard Title Added
+
+[33mcommit 8e6f96ba39f5ea49865e48cedb96d5caa6b71e88[m
+Author: Abhishek Singh <meabhisingh25@gmail.com>
+Date:   Mon Sep 20 13:53:10 2021 +0530
+
+    Prefix Bug Fixed
+
+[33mcommit 7c3facd7a1f8c0a918184f5988bc5ebd191f78f8[m
+Author: Abhishek Singh <meabhisingh25@gmail.com>
+Date:   Mon Sep 20 13:24:33 2021 +0530
+
+    Initial Commit
