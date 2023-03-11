@@ -1,3 +1,4 @@
+const { promisify } = require('util');
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
@@ -10,7 +11,7 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHander("Please Login to access this resource", 401));
   }
 
-  const decodedData = jwt.verify(token, process.env.JWT_SECRET);
+  const decodedData = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
   req.user = await User.findById(decodedData.id);
 
