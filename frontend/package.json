@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.1",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.17.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -58,5 +62,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.29.21:4000"
+  "proxy": "http://192.168.29.195:4000"
 }

@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import "./UpdateProfile.css";
 import Loader from "../layout/Loader/Loader";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import FaceIcon from "@material-ui/icons/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, loadUser } from "../../actions/userAction";
@@ -18,6 +19,7 @@ const UpdateProfile = ({ history }) => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone_no, setPhone_no] = useState("");
   const [avatar, setAvatar] = useState();
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
@@ -29,6 +31,7 @@ const UpdateProfile = ({ history }) => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("avatar", avatar);
+    myForm.set("phone_no", phone_no);
     dispatch(updateProfile(myForm));
   };
 
@@ -49,6 +52,7 @@ const UpdateProfile = ({ history }) => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
+      setPhone_no(user.phone_no);
       setAvatarPreview(user.avatar.url);
     }
 
@@ -104,6 +108,17 @@ const UpdateProfile = ({ history }) => {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="signUpPhoneNumber">
+                  <LocalPhoneIcon />
+                  <input
+                    type="tel"
+                    placeholder="Phone No"
+                    required
+                    name="phone_no"
+                    value={phone_no}
+                    onChange={(e) => setPhone_no(e.target.value)}
                   />
                 </div>
 

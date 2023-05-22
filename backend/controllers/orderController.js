@@ -1,7 +1,9 @@
 const Order = require("../models/orderModel");
+const User = require("../models/userModel");
 const Product = require("../models/productModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
+const sendSms = require("../utils/sendSms");
 
 // Create new Order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
@@ -80,7 +82,7 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
 // update Order Status -- Admin
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
-
+  const user = await User.findById(order.user);
   if (!order) {
     return next(new ErrorHander("Order not found with this Id", 404));
   }
@@ -93,11 +95,28 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     order.orderItems.forEach(async (o) => {
       await updateStock(o.product, o.quantity);
     });
+    try {
+      await sendSms({
+        body: `Your Order is Shipped Successfully`,
+        phone_no: user.phone_no,
+      });
+    } catch (error) {
+      return next(new ErrorHander(error.message, 500));
+    }
   }
   order.orderStatus = req.body.status;
 
   if (req.body.status === "Delivered") {
     order.deliveredAt = Date.now();
+
+    try {
+      await sendSms({
+        body: `Your Order is Delivered Successfully`,
+        phone_no: user.phone_no,
+      });
+    } catch (error) {
+      return next(new ErrorHander(error.message, 500));
+    }
   }
 
   await order.save({ validateBeforeSave: false });
