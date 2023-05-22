@@ -23,6 +23,7 @@
     "mongoose": "^5.13.5",
     "nodemailer": "^6.6.3",
     "stripe": "^8.174.0",
+    "twilio": "^4.11.1",
     "validator": "^13.6.0"
   }
 }

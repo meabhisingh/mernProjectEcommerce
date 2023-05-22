@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     minLength: [8, "Password should be greater than 8 characters"],
     select: false,
   },
+  phone_no: {
+    type: String,
+    required: [true, "Please Enter Your Contact Number"],
+    minLength: [10, "Number should be of 10 digits"],
+  },
   avatar: {
     public_id: {
       type: String,
