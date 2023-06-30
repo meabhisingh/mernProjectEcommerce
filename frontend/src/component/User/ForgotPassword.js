@@ -23,7 +23,8 @@ const ForgotPassword = () => {
     const myForm = new FormData();
 
     myForm.set("email", email);
-    dispatch(forgotPassword(myForm));
+    // email is passed instead of form data
+    dispatch(forgotPassword(email));
   };
 
   useEffect(() => {
@@ -50,8 +51,7 @@ const ForgotPassword = () => {
 
               <form
                 className="forgotPasswordForm"
-                onSubmit={forgotPasswordSubmit}
-              >
+                onSubmit={forgotPasswordSubmit}>
                 <div className="forgotPasswordEmail">
                   <MailOutlineIcon />
                   <input
