@@ -4,7 +4,7 @@ Hi! My name is **Abhishek Singh**, I have created this tutorial to teach MERN St
 
 # Prerequisite
 
-1.  Must have basic knowledge of **Node**, **React**, **Express**, **MongoDB** . _I have made tutorial on each technology on YouTube , make sure to check it out_. **Links are Below respectively**
+1.  Must have basic knowledge of **Node**, **React**, **Express**, **MongoDB** . _I have made tutorial on each technology on YouTube , make sure to check it out_.**better if u use sans serif font every where **Links are Below respectively**
 2.  Node - https://youtu.be/BSO9C8Z-YV8
 3.  React - https://youtu.be/99kgUCIMboY
 4.  Express - https://youtu.be/teipbke8c4A\
