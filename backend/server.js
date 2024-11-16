@@ -36,3 +36,5 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
   });
 });
+ 
+module.exports=app;
