@@ -80,6 +80,7 @@ function App() {
         </Elements>
       )}
 
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/product/:id" component={ProductDetails} />
