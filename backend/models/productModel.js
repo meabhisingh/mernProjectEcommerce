@@ -58,6 +58,8 @@ const productSchema = mongoose.Schema({
       },
       rating: {
         type: Number,
+        maxLength: [5, "Rating cannot exceed 5 characters"],
+        minLength: [0, "Rating cannot be less than 0"],
         required: true,
       },
       comment: {
