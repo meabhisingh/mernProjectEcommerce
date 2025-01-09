@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Sidebar from "./Sidebar.js";
 import "./dashboard.css";
 import { Typography } from "@material-ui/core";
@@ -13,20 +13,9 @@ import MetaData from "../layout/MetaData";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const { products } = useSelector((state) => state.products);
-
-  const { orders } = useSelector((state) => state.allOrders);
-
-  const { users } = useSelector((state) => state.allUsers);
-
-  let outOfStock = 0;
-
-  products &&
-    products.forEach((item) => {
-      if (item.Stock === 0) {
-        outOfStock += 1;
-      }
-    });
+  const { products = [] } = useSelector((state) => state.products);
+  const { orders = [] } = useSelector((state) => state.allOrders);
+  const { users = [] } = useSelector((state) => state.allUsers);
 
   useEffect(() => {
     dispatch(getAdminProduct());
@@ -34,34 +23,44 @@ const Dashboard = () => {
     dispatch(getAllUsers());
   }, [dispatch]);
 
-  let totalAmount = 0;
-  orders &&
-    orders.forEach((item) => {
-      totalAmount += item.totalPrice;
-    });
+  const outOfStock = useMemo(
+    () => products.filter((item) => item.Stock === 0).length,
+    [products]
+  );
 
-  const lineState = {
-    labels: ["Initial Amount", "Amount Earned"],
-    datasets: [
-      {
-        label: "TOTAL AMOUNT",
-        backgroundColor: ["tomato"],
-        hoverBackgroundColor: ["rgb(197, 72, 49)"],
-        data: [0, totalAmount],
-      },
-    ],
-  };
+  const totalAmount = useMemo(
+    () => orders.reduce((sum, item) => sum + (item.totalPrice || 0), 0),
+    [orders]
+  );
 
-  const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
-    datasets: [
-      {
-        backgroundColor: ["#00A6B4", "#6800B4"],
-        hoverBackgroundColor: ["#4B5000", "#35014F"],
-        data: [outOfStock, products.length - outOfStock],
-      },
-    ],
-  };
+  const lineState = useMemo(
+    () => ({
+      labels: ["Initial Amount", "Amount Earned"],
+      datasets: [
+        {
+          label: "TOTAL AMOUNT",
+          backgroundColor: ["tomato"],
+          hoverBackgroundColor: ["rgb(197, 72, 49)"],
+          data: [0, totalAmount],
+        },
+      ],
+    }),
+    [totalAmount]
+  );
+
+  const doughnutState = useMemo(
+    () => ({
+      labels: ["Out of Stock", "InStock"],
+      datasets: [
+        {
+          backgroundColor: ["#00A6B4", "#6800B4"],
+          hoverBackgroundColor: ["#4B5000", "#35014F"],
+          data: [outOfStock, products.length - outOfStock],
+        },
+      ],
+    }),
+    [outOfStock, products.length]
+  );
 
   return (
     <div className="dashboard">
@@ -74,21 +73,21 @@ const Dashboard = () => {
         <div className="dashboardSummary">
           <div>
             <p>
-              Total Amount <br /> ₹{totalAmount}
+              Total Amount <br /> ₹{totalAmount.toLocaleString()}
             </p>
           </div>
           <div className="dashboardSummaryBox2">
             <Link to="/admin/products">
               <p>Product</p>
-              <p>{products && products.length}</p>
+              <p>{products.length}</p>
             </Link>
             <Link to="/admin/orders">
               <p>Orders</p>
-              <p>{orders && orders.length}</p>
+              <p>{orders.length}</p>
             </Link>
             <Link to="/admin/users">
               <p>Users</p>
-              <p>{users && users.length}</p>
+              <p>{users.length}</p>
             </Link>
           </div>
         </div>
