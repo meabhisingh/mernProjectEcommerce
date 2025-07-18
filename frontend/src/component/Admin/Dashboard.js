@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAdminProduct } from "../../actions/productAction";
 import { getAllOrders } from "../../actions/orderAction.js";
 import { getAllUsers } from "../../actions/userAction.js";
+import MetaData from "../layout/MetaData";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
+      <MetaData title="Dashboard - Admin Panel" />
       <Sidebar />
 
       <div className="dashboardContainer">
