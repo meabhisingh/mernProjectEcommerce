@@ -1,47 +1,122 @@
-# MERN E-COMMERCE TUTORIAL
+📘 MERN Stack E-Commerce Tutorial
 
-Hi! My name is **Abhishek Singh**, I have created this tutorial to teach MERN Stack for free on YouTube.
+This repository contains the source code for the MERN Stack E-Commerce Application tutorial created by Abhishek Singh (6 Pack Programmer).
 
-# Prerequisite
+The tutorial teaches how to build a full-stack MERN application step by step.
+If you are a beginner in MERN, this repo will help you practice Node.js, Express, MongoDB, and React all together.
 
-1.  Must have basic knowledge of **Node**, **React**, **Express**, **MongoDB** . _I have made tutorial on each technology on YouTube , make sure to check it out_. **Links are Below respectively**
-2.  Node - https://youtu.be/BSO9C8Z-YV8
-3.  React - https://youtu.be/99kgUCIMboY
-4.  Express - https://youtu.be/teipbke8c4A\
-5.  MongoDB - https://youtu.be/AYDP1S5BbTo
-6.  RestApi - https://youtu.be/AhCSfuG9Jxw _(optional)_
+🎥 Tutorial Playlist
 
-# Install Dependencies
+Before starting, make sure you are comfortable with the basics of each technology. You can watch Abhishek Singh’s tutorials here:
 
-**For Backend** - `npm i`
+Node.js Tutorial
 
-**For Frontend** - `cd frontend` ` npm i`
+React Tutorial
 
-## Env Variables
+Express.js Tutorial
 
-Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.
+MongoDB Tutorial
 
-**Essential Variables**
-PORT=
-DB_URI =
-STRIPE_API_KEY=
-STRIPE_SECRET_KEY=
-JWT_SECRET=
-JWT_EXPIRE=
-COOKIE_EXPIRE=
-SMPT_SERVICE =
-SMPT_MAIL=
-SMPT_PASSWORD=
-SMPT_HOST=
-SMPT_PORT=
-CLOUDINARY_NAME
-CLOUDINARY_API_KEY
-CLOUDINARY_API_SECRET
-_fill each filed with your info respectively_
+REST API (Optional)
 
-## Author
+🚀 Getting Started
+🔧 Installation
 
-**Instagram** Click [Here](https://www.instagram.com/meabhisingh) **@meAbhiSingh**
-**YouTube** Click [Here](https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw/) **6 Pack Programmer**
-**LinkedIn** Click [Here](https://in.linkedin.com/in/meabhisingh) **@meAbhiSingh**
-**Twitter** Click [Here](https://twitter.com/meAbhi_Singh) **@meAbhi_Singh**
+Clone the repo and install dependencies for both backend and frontend:
+
+# Clone the repo
+
+git clone <repo-url>
+cd <repo-folder>
+
+# Install backend dependencies
+
+npm install
+
+# Install frontend dependencies
+
+cd frontend
+npm install
+
+⚙️ Environment Variables
+
+Create a file named config.env inside the backend/config directory.
+
+You can copy values from the sample file (config.env.example) and replace them with your own:
+
+PORT=5000
+DB_URI=your_mongodb_uri
+STRIPE_API_KEY=your_stripe_api_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRE=5d
+COOKIE_EXPIRE=7
+SMPT_SERVICE=gmail
+SMPT_MAIL=example@gmail.com
+SMPT_PASSWORD=your_password
+SMPT_HOST=smtp.gmail.com
+SMPT_PORT=587
+CLOUDINARY_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+
+▶️ Running the App
+
+Start backend server:
+
+npm run dev
+
+Start frontend React app:
+
+cd frontend
+npm start
+
+🛠️ Tech Stack
+
+MongoDB – Database
+
+Express.js – Backend framework
+
+React.js – Frontend framework
+
+Node.js – Runtime environment
+
+Stripe – Payment gateway
+
+Cloudinary – Image uploads
+
+🤝 Contributing
+
+Contributions are welcome! You can:
+
+Improve documentation
+
+Fix bugs
+
+Suggest enhancements
+
+Steps to contribute:
+
+Fork the repo
+
+Create a new branch (git checkout -b feature-name)
+
+Commit your changes (git commit -m "Added feature")
+
+Push to your branch (git push origin feature-name)
+
+Open a Pull Request
+
+👨‍💻 Author
+
+Abhishek Singh (6 Pack Programmer)
+
+📺 YouTube
+
+📸 Instagram
+
+💼 LinkedIn
+
+🐦 Twitter
+
+✨ Star this repo if you found it helpful!
