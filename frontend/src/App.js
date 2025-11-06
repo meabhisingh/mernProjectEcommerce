@@ -1,3 +1,5 @@
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 import "./App.css";
 import { useEffect, useState } from "react";
 import Header from "./component/layout/Header/Header.js";
