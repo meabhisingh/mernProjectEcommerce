@@ -136,3 +136,8 @@
     font: 300 1vmax "Roboto";
   }
 }
+
+#text{
+  margin-top:10px;
+  margin-bottom:10px;
+}

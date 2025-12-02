@@ -1,0 +1,5 @@
+<!-- frontend/src/component/layout/CardNav/logo.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="28" viewBox="0 0 120 28" role="img" aria-label="Logo">
+  <rect width="120" height="28" rx="6" fill="#111"></rect>
+  <text x="12" y="19" font-family="sans-serif" font-size="12" fill="#fff">My Company</text>
+</svg>

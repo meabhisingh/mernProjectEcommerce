@@ -17,6 +17,14 @@ Hi! My name is **Abhishek Singh**, I have created this tutorial to teach MERN St
 
 **For Frontend** - `cd frontend` ` npm i`
 
+# STARTING THE PROJCT:
+
+**For Backend** - `npm run dev`
+
+**For Frontend** - `npm start` 
+
+
+
 ## Env Variables
 
 Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { CgMouse } from "react-icons/all";
+import { CgMouse } from "react-icons/cg";   // ✅ FIXED
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -7,6 +7,8 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import TextPressure from "../common/TextPressure"; 
+
 
 const Home = () => {
   const alert = useAlert();
@@ -31,7 +33,19 @@ const Home = () => {
 
           <div className="banner">
             <p>Welcome to Ecommerce</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+            <TextPressure
+    text="FIND AMAZING PRODUCTS BELOW!"
+    flex={true}
+    alpha={false}
+    stroke={false}
+    width={true}
+    weight={true}
+    italic={true}
+    textColor="#ffffff"
+    strokeColor="#ff0000"
+    minFontSize={40}
+    id="text"
+  />
 
             <a href="#container">
               <button>
