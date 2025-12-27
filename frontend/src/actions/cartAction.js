@@ -5,9 +5,43 @@ import {
 } from "../constants/cartConstants";
 import axios from "axios";
 
+
+// ValidateCartItem
+
+const validateCartItem = (product, quantity) => {
+  if (!quantity || quantity <= 0) {
+    return false;
+  }
+
+  if (!product) {
+    return false;
+  }
+
+  if (
+    !product._id ||
+    !product.name ||
+    typeof product.price !== "number" ||
+    !product.images ||
+    !product.images[0]?.url ||
+    typeof product.Stock !== "number"
+  ) {
+    return false;
+  }
+
+  return true;
+};
+
 // Add to Cart
+
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const { data } = await axios.get(`/api/v1/product/${id}`);
+
+  const isValid = validateCartItem(data.product, quantity);
+
+  if (!isValid) {
+    console.error("Invalid cart item data");
+    return;
+  }
 
   dispatch({
     type: ADD_TO_CART,
@@ -23,6 +57,7 @@ export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
 
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
+
 
 // REMOVE FROM CART
 export const removeItemsFromCart = (id) => async (dispatch, getState) => {

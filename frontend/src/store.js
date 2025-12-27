@@ -49,14 +49,50 @@ const reducer = combineReducers({
   review: reviewReducer,
 });
 
+const getValidCartItems = () => {
+  try {
+    const deta = JSON.parse(localStorage.getItem("cartItems"));
+
+    if (!Array.isArray(deta)) {
+      localStorage.removeItem("cartItems");
+      return [];
+    }
+
+    const validItems = deta.filter((item) => {
+      return (
+        item.product &&
+        typeof item.quantity === "number" &&
+        item.quantity > 0 &&
+        typeof item.price === "number"
+      );
+    });
+
+    return validItems;
+  } catch (err) {
+    return [];
+  }
+};
+
+const getValidShippingInfo = () => {
+  try {
+    const deta = JSON.parse(localStorage.getItem("shippingInfo"));
+
+    if (!deta || typeof deta !== "object") {
+      localStorage.removeItem("shippingInfo");
+      return {};
+    }
+
+    return deta;
+  } catch (err) {
+    return {};
+  }
+};
+
+
 let initialState = {
   cart: {
-    cartItems: localStorage.getItem("cartItems")
-      ? JSON.parse(localStorage.getItem("cartItems"))
-      : [],
-    shippingInfo: localStorage.getItem("shippingInfo")
-      ? JSON.parse(localStorage.getItem("shippingInfo"))
-      : {},
+    cartItems: getValidCartItems(),
+    shippingInfo: getValidShippingInfo(),
   },
 };
 
