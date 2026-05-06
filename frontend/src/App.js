@@ -10,6 +10,7 @@ import ProductDetails from "./component/Product/ProductDetails";
 import Products from "./component/Product/Products";
 import Search from "./component/Product/Search";
 import LoginSignUp from "./component/User/LoginSignUp";
+// Comment 1
 import store from "./store";
 import { loadUser } from "./actions/userAction";
 import UserOptions from "./component/layout/Header/UserOptions";
